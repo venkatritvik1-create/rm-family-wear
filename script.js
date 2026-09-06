@@ -11,15 +11,11 @@
 const loader = document.getElementById("loader");
 
 if (loader) {
-
     window.addEventListener("load", () => {
-
         setTimeout(() => {
             loader.classList.add("hide");
         }, 1400);
-
     });
-
 }
 
 
@@ -30,17 +26,13 @@ if (loader) {
 const navbar = document.querySelector(".navbar");
 
 if (navbar) {
-
     window.addEventListener("scroll", () => {
-
         if (window.scrollY > 80) {
             navbar.classList.add("scrolled");
         } else {
             navbar.classList.remove("scrolled");
         }
-
     });
-
 }
 
 
@@ -57,47 +49,27 @@ const mobileMenu =
 const mobileClose =
     document.getElementById("mobileClose");
 
-
 if (menuButton && mobileMenu) {
-
     menuButton.addEventListener("click", () => {
-
         mobileMenu.classList.add("open");
         document.body.classList.add("no-scroll");
-
     });
-
 }
-
 
 if (mobileClose && mobileMenu) {
-
     mobileClose.addEventListener("click", () => {
-
         mobileMenu.classList.remove("open");
         document.body.classList.remove("no-scroll");
-
     });
-
 }
 
-
 if (mobileMenu) {
-
-    const mobileLinks =
-        mobileMenu.querySelectorAll("a");
-
-    mobileLinks.forEach(link => {
-
+    mobileMenu.querySelectorAll("a").forEach(link => {
         link.addEventListener("click", () => {
-
             mobileMenu.classList.remove("open");
             document.body.classList.remove("no-scroll");
-
         });
-
     });
-
 }
 
 
@@ -117,38 +89,24 @@ const searchClose =
 const searchInput =
     document.getElementById("searchInput");
 
-
 if (searchButton && searchOverlay) {
-
     searchButton.addEventListener("click", () => {
-
         searchOverlay.classList.add("open");
-
         document.body.classList.add("no-scroll");
 
         if (searchInput) {
-
             setTimeout(() => {
                 searchInput.focus();
             }, 400);
-
         }
-
     });
-
 }
 
-
 if (searchClose && searchOverlay) {
-
     searchClose.addEventListener("click", () => {
-
         searchOverlay.classList.remove("open");
-
         document.body.classList.remove("no-scroll");
-
     });
-
 }
 
 
@@ -156,28 +114,22 @@ if (searchClose && searchOverlay) {
    SEARCH SUGGESTIONS
 ===================================================== */
 
-const searchSuggestions =
-    document.querySelectorAll(
-        ".search-suggestions button"
-    );
+document
+    .querySelectorAll(".search-suggestions button")
+    .forEach(button => {
 
+        button.addEventListener("click", () => {
 
-searchSuggestions.forEach(button => {
+            if (searchInput) {
+                searchInput.value =
+                    button.textContent.trim();
 
-    button.addEventListener("click", () => {
+                searchInput.focus();
+            }
 
-        if (searchInput) {
-
-            searchInput.value =
-                button.textContent.trim();
-
-            searchInput.focus();
-
-        }
+        });
 
     });
-
-});
 
 
 /* =====================================================
@@ -212,12 +164,12 @@ const checkoutButton =
     document.querySelector(".checkout-button");
 
 
-/* =====================================================
-   LOAD CART FROM STORAGE
-===================================================== */
-
 let cartItems = [];
 
+
+/* =====================================================
+   LOAD CART
+===================================================== */
 
 try {
 
@@ -230,9 +182,7 @@ try {
             JSON.parse(savedCart);
 
         if (Array.isArray(parsedCart)) {
-
             cartItems = parsedCart;
-
         }
 
     }
@@ -273,7 +223,7 @@ function saveCart() {
 
 
 /* =====================================================
-   PRICE HELPER
+   PRICE HELPERS
 ===================================================== */
 
 function getPriceNumber(price) {
@@ -287,13 +237,24 @@ function getPriceNumber(price) {
 }
 
 
-/* =====================================================
-   FORMAT PRICE
-===================================================== */
-
 function formatPrice(amount) {
 
-    return `₹${amount.toLocaleString("en-IN")}`;
+    return `₹${Number(amount).toLocaleString("en-IN")}`;
+
+}
+
+
+function getCartSubtotal() {
+
+    return cartItems.reduce(
+        (total, item) => {
+
+            return total +
+                getPriceNumber(item.price);
+
+        },
+        0
+    );
 
 }
 
@@ -315,95 +276,58 @@ function escapeHtml(value) {
 
 
 /* =====================================================
-   GET CART SUBTOTAL
-===================================================== */
-
-function getCartSubtotal() {
-
-    return cartItems.reduce(
-        (total, item) => {
-
-            return total +
-                getPriceNumber(item.price);
-
-        },
-        0
-    );
-
-}
-
-
-/* =====================================================
    UPDATE CART
 ===================================================== */
 
 function updateCart() {
 
-
-    /* CART COUNT */
-
     if (cartCount) {
-
         cartCount.textContent =
             cartItems.length;
-
     }
 
-
-    /* CART ITEMS */
 
     if (cartItemsContainer) {
 
-        if (cartItems.length === 0) {
+        cartItemsContainer.innerHTML =
+            cartItems.map((item, index) => {
 
-            cartItemsContainer.innerHTML = "";
+                return `
+                    <div class="cart-item">
 
-        } else {
+                        <div class="cart-item-details">
 
-            cartItemsContainer.innerHTML =
-                cartItems.map((item, index) => {
+                            <h4>
+                                ${escapeHtml(item.name)}
+                            </h4>
 
-                    return `
-                        <div class="cart-item">
-
-                            <div class="cart-item-details">
-
-                                <h4>
-                                    ${escapeHtml(item.name)}
-                                </h4>
-
-                                <p>
-                                    ${escapeHtml(item.price)}
-                                </p>
-
-                            </div>
-
-                            <button
-                                class="remove-cart-item"
-                                data-index="${index}"
-                                aria-label="Remove ${escapeHtml(item.name)}"
-                            >
-                                ×
-                            </button>
+                            <p>
+                                ${escapeHtml(item.price)}
+                            </p>
 
                         </div>
-                    `;
 
-                }).join("");
+                        <button
+                            class="remove-cart-item"
+                            data-index="${index}"
+                            aria-label="Remove ${escapeHtml(item.name)}"
+                        >
+                            ×
+                        </button>
 
-        }
+                    </div>
+                `;
+
+            }).join("");
 
     }
 
-
-    /* EMPTY / ITEM MESSAGE */
 
     if (cartEmpty) {
 
         if (cartItems.length === 0) {
 
             cartEmpty.innerHTML = `
-
                 <span>R&M</span>
 
                 <p>
@@ -416,13 +340,11 @@ function updateCart() {
                 >
                     CONTINUE SHOPPING →
                 </a>
-
             `;
 
         } else {
 
             cartEmpty.innerHTML = `
-
                 <span>R&M</span>
 
                 <p>
@@ -430,7 +352,6 @@ function updateCart() {
                     item${cartItems.length > 1 ? "s" : ""}
                     in your bag.
                 </p>
-
             `;
 
         }
@@ -438,20 +359,13 @@ function updateCart() {
     }
 
 
-    /* SUBTOTAL */
-
     if (cartSubtotal) {
 
-        const subtotal =
-            getCartSubtotal();
-
         cartSubtotal.textContent =
-            formatPrice(subtotal);
+            formatPrice(getCartSubtotal());
 
     }
 
-
-    /* SAVE CART */
 
     saveCart();
 
@@ -459,7 +373,7 @@ function updateCart() {
 
 
 /* =====================================================
-   REMOVE ITEM FROM CART
+   REMOVE CART ITEM
 ===================================================== */
 
 if (cartItemsContainer) {
@@ -468,17 +382,15 @@ if (cartItemsContainer) {
         "click",
         event => {
 
-            const removeButton =
+            const button =
                 event.target.closest(
                     ".remove-cart-item"
                 );
 
-            if (!removeButton) return;
-
+            if (!button) return;
 
             const index =
-                Number(removeButton.dataset.index);
-
+                Number(button.dataset.index);
 
             if (
                 Number.isInteger(index) &&
@@ -499,21 +411,17 @@ if (cartItemsContainer) {
 
 
 /* =====================================================
-   OPEN CART
+   OPEN / CLOSE CART
 ===================================================== */
 
 function openCart() {
 
     if (cartDrawer) {
-
         cartDrawer.classList.add("open");
-
     }
 
     if (cartOverlay) {
-
         cartOverlay.classList.add("open");
-
     }
 
     document.body.classList.add("no-scroll");
@@ -521,22 +429,14 @@ function openCart() {
 }
 
 
-/* =====================================================
-   CLOSE CART
-===================================================== */
-
 function closeCart() {
 
     if (cartDrawer) {
-
         cartDrawer.classList.remove("open");
-
     }
 
     if (cartOverlay) {
-
         cartOverlay.classList.remove("open");
-
     }
 
     document.body.classList.remove("no-scroll");
@@ -544,37 +444,45 @@ function closeCart() {
 }
 
 
-/* =====================================================
-   CART BUTTONS
-===================================================== */
-
 if (cartButton) {
 
     cartButton.addEventListener(
         "click",
-        openCart
+        () => {
+
+            /*
+             * checkout.html does not contain
+             * the cart drawer, so let the user
+             * return to the products page.
+             */
+
+            if (!cartDrawer) {
+                window.location.href =
+                    "men.html";
+                return;
+            }
+
+            openCart();
+
+        }
     );
 
 }
 
 
 if (cartClose) {
-
     cartClose.addEventListener(
         "click",
         closeCart
     );
-
 }
 
 
 if (cartOverlay) {
-
     cartOverlay.addEventListener(
         "click",
         closeCart
     );
-
 }
 
 
@@ -582,73 +490,59 @@ if (cartOverlay) {
    ADD TO CART
 ===================================================== */
 
-const quickAddButtons =
-    document.querySelectorAll(".quick-add");
+document
+    .querySelectorAll(".quick-add")
+    .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const productCard =
+                button.closest(".product-card");
+
+            if (!productCard) return;
 
 
-quickAddButtons.forEach(button => {
+            const productName =
+                productCard
+                    .querySelector(".product-name")
+                    ?.textContent
+                    .trim() ||
 
-    button.addEventListener("click", () => {
+                productCard
+                    .querySelector("h3")
+                    ?.textContent
+                    .trim() ||
 
-        const productCard =
-            button.closest(".product-card");
-
-
-        if (!productCard) return;
-
-
-        /* PRODUCT NAME */
-
-        const productName =
-            productCard
-                .querySelector(".product-name")
-                ?.textContent
-                .trim() ||
-
-            productCard
-                .querySelector("h3")
-                ?.textContent
-                .trim() ||
-
-            "Product";
+                "Product";
 
 
-        /* PRODUCT PRICE */
+            const productPrice =
+                productCard
+                    .querySelector(".product-price")
+                    ?.textContent
+                    .trim() ||
 
-        const productPrice =
-            productCard
-                .querySelector(".product-price")
-                ?.textContent
-                .trim() ||
+                productCard
+                    .querySelector("strong")
+                    ?.textContent
+                    .trim() ||
 
-            productCard
-                .querySelector("strong")
-                ?.textContent
-                .trim() ||
-
-            "₹0";
+                "₹0";
 
 
-        /* ADD PRODUCT */
+            cartItems.push({
+                name: productName,
+                price: productPrice
+            });
 
-        cartItems.push({
 
-            name: productName,
+            updateCart();
 
-            price: productPrice
+            openCart();
 
         });
 
-
-        /* UPDATE */
-
-        updateCart();
-
-        openCart();
-
     });
-
-});
 
 
 /* =====================================================
@@ -670,7 +564,6 @@ if (checkoutButton) {
                 return;
 
             }
-
 
             window.location.href =
                 "checkout.html";
@@ -709,7 +602,6 @@ function applyFilter(filter) {
         const category =
             card.dataset.category;
 
-
         if (
             filter === "all" ||
             category === filter
@@ -734,20 +626,15 @@ filterButtons.forEach(button => {
         "click",
         () => {
 
-            const filter =
-                button.dataset.filter;
-
-            applyFilter(filter);
+            applyFilter(
+                button.dataset.filter
+            );
 
         }
     );
 
 });
 
-
-/* =====================================================
-   CATEGORY URL FILTER
-===================================================== */
 
 const urlParams =
     new URLSearchParams(
@@ -768,13 +655,8 @@ if (
             `.filter-button[data-filter="${requestedCategory}"]`
         );
 
-
     if (matchingButton) {
-
-        applyFilter(
-            requestedCategory
-        );
-
+        applyFilter(requestedCategory);
     }
 
 }
@@ -793,17 +675,23 @@ const checkoutItems =
 const checkoutSubtotal =
     document.getElementById("checkoutSubtotal");
 
+const checkoutEmpty =
+    document.getElementById("checkoutEmpty");
+
 const placeOrderButton =
     document.getElementById("placeOrderButton");
 
 const checkoutLayout =
-    document.getElementById("checkoutLayout");
+    document.querySelector(".checkout-layout");
 
 const orderSuccess =
     document.getElementById("orderSuccess");
 
 const orderNumber =
     document.getElementById("orderNumber");
+
+const paymentSelect =
+    document.getElementById("payment");
 
 
 /* =====================================================
@@ -815,39 +703,30 @@ function renderCheckout() {
     if (!checkoutItems) return;
 
 
-    /* EMPTY CART */
-
     if (cartItems.length === 0) {
 
         checkoutItems.innerHTML = `
-
             <div class="checkout-empty">
-
                 Your bag is empty.
-
                 <br><br>
-
                 Add products from the
                 men's collection before checkout.
-
             </div>
-
         `;
 
 
         if (checkoutSubtotal) {
+            checkoutSubtotal.textContent = "₹0";
+        }
 
-            checkoutSubtotal.textContent =
-                "₹0";
 
+        if (checkoutEmpty) {
+            checkoutEmpty.style.display = "block";
         }
 
 
         if (placeOrderButton) {
-
-            placeOrderButton.disabled =
-                true;
-
+            placeOrderButton.disabled = true;
         }
 
         return;
@@ -855,52 +734,432 @@ function renderCheckout() {
     }
 
 
-    /* CART ITEMS */
+    if (checkoutEmpty) {
+        checkoutEmpty.style.display = "none";
+    }
+
 
     checkoutItems.innerHTML =
         cartItems.map(item => {
 
             return `
-
                 <div class="checkout-item">
 
                     <div class="checkout-item-name">
-
                         ${escapeHtml(item.name)}
-
                     </div>
 
                     <div class="checkout-item-price">
-
                         ${escapeHtml(item.price)}
-
                     </div>
 
                 </div>
-
             `;
 
         }).join("");
 
 
-    /* TOTAL */
-
-    const subtotal =
-        getCartSubtotal();
-
-
     if (checkoutSubtotal) {
 
         checkoutSubtotal.textContent =
-            formatPrice(subtotal);
+            formatPrice(getCartSubtotal());
 
     }
 
 
     if (placeOrderButton) {
+        placeOrderButton.disabled = false;
+    }
 
-        placeOrderButton.disabled =
-            false;
+}
+
+
+/* =====================================================
+   SHOW ORDER SUCCESS
+===================================================== */
+
+function showOrderSuccess() {
+
+    const randomNumber =
+        Math.floor(
+            100000 +
+            Math.random() * 900000
+        );
+
+    const generatedOrderNumber =
+        `RM${randomNumber}`;
+
+
+    if (orderNumber) {
+        orderNumber.textContent =
+            generatedOrderNumber;
+    }
+
+
+    if (checkoutLayout) {
+        checkoutLayout.style.display =
+            "none";
+    }
+
+
+    if (orderSuccess) {
+        orderSuccess.classList.add("show");
+    }
+
+
+    cartItems = [];
+
+    saveCart();
+
+    updateCart();
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =====================================================
+   RAZORPAY SCRIPT LOADER
+===================================================== */
+
+function loadRazorpay() {
+
+    return new Promise((resolve, reject) => {
+
+        if (window.Razorpay) {
+            resolve();
+            return;
+        }
+
+
+        const script =
+            document.createElement("script");
+
+        script.src =
+            "https://checkout.razorpay.com/v1/checkout.js";
+
+        script.onload = () => resolve();
+
+        script.onerror = () => {
+            reject(
+                new Error(
+                    "Razorpay could not be loaded."
+                )
+            );
+        };
+
+        document.head.appendChild(script);
+
+    });
+
+}
+
+
+/* =====================================================
+   ONLINE PAYMENT
+===================================================== */
+
+async function startRazorpayPayment() {
+
+    if (cartItems.length === 0) {
+
+        alert("Your bag is empty.");
+
+        return;
+
+    }
+
+
+    const customer = {
+
+        name:
+            document.getElementById("fullName")
+                ?.value
+                .trim(),
+
+        phone:
+            document.getElementById("phone")
+                ?.value
+                .trim(),
+
+        email:
+            document.getElementById("email")
+                ?.value
+                .trim(),
+
+        address:
+            document.getElementById("address")
+                ?.value
+                .trim(),
+
+        city:
+            document.getElementById("city")
+                ?.value
+                .trim(),
+
+        state:
+            document.getElementById("state")
+                ?.value
+                .trim(),
+
+        pincode:
+            document.getElementById("pincode")
+                ?.value
+                .trim()
+
+    };
+
+
+    try {
+
+        if (placeOrderButton) {
+            placeOrderButton.disabled = true;
+            placeOrderButton.textContent =
+                "OPENING PAYMENT...";
+        }
+
+
+        /*
+         * The server receives product names,
+         * validates their prices against its
+         * own product list and creates the
+         * Razorpay order.
+         */
+
+        const response =
+            await fetch(
+                "/api/create-order",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        items: cartItems,
+                        customer: customer
+                    })
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.error ||
+                "Could not create Razorpay order."
+            );
+
+        }
+
+
+        await loadRazorpay();
+
+
+        const options = {
+
+            key: data.keyId,
+
+            amount: data.amount,
+
+            currency: data.currency,
+
+            name: "R&M Family Wear",
+
+            description:
+                "R&M Family Wear Order",
+
+            order_id:
+                data.orderId,
+
+            prefill: {
+
+                name: customer.name,
+
+                email: customer.email,
+
+                contact: customer.phone
+
+            },
+
+            notes: {
+
+                city: customer.city,
+
+                state: customer.state,
+
+                pincode: customer.pincode
+
+            },
+
+            theme: {
+
+                color: "#3f3028"
+
+            },
+
+
+            handler:
+                async function (paymentResponse) {
+
+                    try {
+
+                        if (placeOrderButton) {
+                            placeOrderButton.textContent =
+                                "VERIFYING PAYMENT...";
+                        }
+
+
+                        const verifyResponse =
+                            await fetch(
+                                "/api/verify-payment",
+                                {
+                                    method: "POST",
+
+                                    headers: {
+                                        "Content-Type":
+                                            "application/json"
+                                    },
+
+                                    body: JSON.stringify({
+
+                                        razorpay_payment_id:
+                                            paymentResponse.razorpay_payment_id,
+
+                                        razorpay_order_id:
+                                            paymentResponse.razorpay_order_id,
+
+                                        razorpay_signature:
+                                            paymentResponse.razorpay_signature
+
+                                    })
+
+                                }
+                            );
+
+
+                        const verifyData =
+                            await verifyResponse.json();
+
+
+                        if (
+                            !verifyResponse.ok ||
+                            !verifyData.verified
+                        ) {
+
+                            throw new Error(
+                                "Payment verification failed."
+                            );
+
+                        }
+
+
+                        showOrderSuccess();
+
+                    } catch (error) {
+
+                        console.error(error);
+
+                        alert(
+                            "Payment was received, but we could not verify it. Please contact R&M before placing another order."
+                        );
+
+                    } finally {
+
+                        if (placeOrderButton) {
+
+                            placeOrderButton.disabled =
+                                false;
+
+                            placeOrderButton.textContent =
+                                "PLACE ORDER";
+
+                        }
+
+                    }
+
+                },
+
+
+            modal: {
+
+                ondismiss: function () {
+
+                    if (placeOrderButton) {
+
+                        placeOrderButton.disabled =
+                            false;
+
+                        placeOrderButton.textContent =
+                            "PLACE ORDER";
+
+                    }
+
+                }
+
+            }
+
+        };
+
+
+        const razorpay =
+            new Razorpay(options);
+
+
+        razorpay.on(
+            "payment.failed",
+            function () {
+
+                alert(
+                    "Payment was not completed. Please try again."
+                );
+
+                if (placeOrderButton) {
+
+                    placeOrderButton.disabled =
+                        false;
+
+                    placeOrderButton.textContent =
+                        "PLACE ORDER";
+
+                }
+
+            }
+        );
+
+
+        razorpay.open();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            error.message ||
+            "Something went wrong while starting payment."
+        );
+
+
+        if (placeOrderButton) {
+
+            placeOrderButton.disabled =
+                false;
+
+            placeOrderButton.textContent =
+                "PLACE ORDER";
+
+        }
 
     }
 
@@ -918,12 +1177,10 @@ if (checkoutForm) {
 
     checkoutForm.addEventListener(
         "submit",
-        event => {
+        async event => {
 
             event.preventDefault();
 
-
-            /* DON'T SUBMIT EMPTY CART */
 
             if (cartItems.length === 0) {
 
@@ -936,8 +1193,6 @@ if (checkoutForm) {
             }
 
 
-            /* FORM VALIDATION */
-
             if (!checkoutForm.checkValidity()) {
 
                 checkoutForm.reportValidity();
@@ -947,66 +1202,25 @@ if (checkoutForm) {
             }
 
 
-            /* GENERATE ORDER NUMBER */
-
-            const randomNumber =
-                Math.floor(
-                    100000 +
-                    Math.random() * 900000
-                );
+            const paymentMethod =
+                paymentSelect?.value;
 
 
-            const generatedOrderNumber =
-                `RM${randomNumber}`;
+            if (paymentMethod === "online") {
 
+                await startRazorpayPayment();
 
-            if (orderNumber) {
-
-                orderNumber.textContent =
-                    generatedOrderNumber;
+                return;
 
             }
 
 
-            /* HIDE CHECKOUT */
+            /*
+             * COD and Pay at Store are not
+             * online payments.
+             */
 
-            if (checkoutLayout) {
-
-                checkoutLayout.style.display =
-                    "none";
-
-            }
-
-
-            /* SHOW SUCCESS */
-
-            if (orderSuccess) {
-
-                orderSuccess.classList.add(
-                    "show"
-                );
-
-            }
-
-
-            /* CLEAR CART */
-
-            cartItems = [];
-
-            saveCart();
-
-            updateCart();
-
-
-            /* SCROLL TO TOP */
-
-            window.scrollTo({
-
-                top: 0,
-
-                behavior: "smooth"
-
-            });
+            showOrderSuccess();
 
         }
     );
@@ -1025,25 +1239,14 @@ document.addEventListener(
         if (event.key === "Escape") {
 
             if (searchOverlay) {
-
-                searchOverlay.classList.remove(
-                    "open"
-                );
-
+                searchOverlay.classList.remove("open");
             }
-
 
             if (mobileMenu) {
-
-                mobileMenu.classList.remove(
-                    "open"
-                );
-
+                mobileMenu.classList.remove("open");
             }
 
-
             closeCart();
-
 
             document.body.classList.remove(
                 "no-scroll"
@@ -1067,7 +1270,6 @@ if ("IntersectionObserver" in window) {
 
     const revealObserver =
         new IntersectionObserver(
-
             entries => {
 
                 entries.forEach(entry => {
@@ -1078,7 +1280,6 @@ if ("IntersectionObserver" in window) {
                             "visible"
                         );
 
-
                         revealObserver.unobserve(
                             entry.target
                         );
@@ -1088,30 +1289,20 @@ if ("IntersectionObserver" in window) {
                 });
 
             },
-
             {
                 threshold: 0.12
             }
-
         );
 
 
     revealElements.forEach(element => {
-
-        revealObserver.observe(
-            element
-        );
-
+        revealObserver.observe(element);
     });
 
 } else {
 
     revealElements.forEach(element => {
-
-        element.classList.add(
-            "visible"
-        );
-
+        element.classList.add("visible");
     });
 
 }
@@ -1121,62 +1312,53 @@ if ("IntersectionObserver" in window) {
    CATEGORY IMAGE PARALLAX
 ===================================================== */
 
-const categoryCards =
-    document.querySelectorAll(".category-card");
+document
+    .querySelectorAll(".category-card")
+    .forEach(card => {
+
+        card.addEventListener(
+            "mousemove",
+            event => {
+
+                const image =
+                    card.querySelector("img");
+
+                if (!image) return;
+
+                const rect =
+                    card.getBoundingClientRect();
+
+                const x =
+                    (event.clientX - rect.left)
+                    / rect.width - 0.5;
+
+                const y =
+                    (event.clientY - rect.top)
+                    / rect.height - 0.5;
+
+                image.style.transform =
+                    `scale(1.06) translate(${x * 8}px, ${y * 8}px)`;
+
+            }
+        );
 
 
-categoryCards.forEach(card => {
+        card.addEventListener(
+            "mouseleave",
+            () => {
 
-    card.addEventListener(
-        "mousemove",
-        event => {
+                const image =
+                    card.querySelector("img");
 
-            const image =
-                card.querySelector("img");
+                if (!image) return;
 
+                image.style.transform =
+                    "scale(1) translate(0, 0)";
 
-            if (!image) return;
+            }
+        );
 
-
-            const rect =
-                card.getBoundingClientRect();
-
-
-            const x =
-                (event.clientX - rect.left)
-                / rect.width - 0.5;
-
-
-            const y =
-                (event.clientY - rect.top)
-                / rect.height - 0.5;
-
-
-            image.style.transform =
-                `scale(1.06) translate(${x * 8}px, ${y * 8}px)`;
-
-        }
-    );
-
-
-    card.addEventListener(
-        "mouseleave",
-        () => {
-
-            const image =
-                card.querySelector("img");
-
-
-            if (!image) return;
-
-
-            image.style.transform =
-                "scale(1) translate(0, 0)";
-
-        }
-    );
-
-});
+    });
 
 
 /* =====================================================
@@ -1193,7 +1375,6 @@ if (searchInput) {
                 searchInput.value
                     .toLowerCase()
                     .trim();
-
 
             if (value.length > 0) {
 
@@ -1223,37 +1404,26 @@ document
             function(event) {
 
                 const targetId =
-                    this.getAttribute(
-                        "href"
-                    );
-
+                    this.getAttribute("href");
 
                 if (
                     !targetId ||
                     targetId === "#"
                 ) {
-
                     return;
-
                 }
-
 
                 const target =
                     document.querySelector(
                         targetId
                     );
 
-
                 if (!target) return;
-
 
                 event.preventDefault();
 
-
                 target.scrollIntoView({
-
                     behavior: "smooth"
-
                 });
 
             }
@@ -1274,9 +1444,7 @@ updateCart();
 ===================================================== */
 
 if (checkoutForm) {
-
     renderCheckout();
-
 }
 
 
