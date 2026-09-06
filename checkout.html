@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | R&M Family Wear</title>
+
+    <meta
+        name="description"
+        content="Checkout your R&M Family Wear order."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="checkout-page">
+
+
+<header class="navbar scrolled">
+
+    <a href="index.html" class="brand">
+
+        <div class="brand-mark">
+            <span>R</span>
+            <small>&</small>
+            <span>M</span>
+        </div>
+
+        <div class="brand-name">
+            <strong>R&M</strong>
+            <span>FAMILY WEAR</span>
+        </div>
+
+    </a>
+
+
+    <nav class="desktop-nav">
+
+        <a href="index.html">Home</a>
+        <a href="men.html">Men</a>
+        <a href="men.html#categories">Categories</a>
+        <a href="index.html#store">Store</a>
+
+    </nav>
+
+
+    <div class="nav-actions">
+
+        <button
+            class="nav-icon cart-button"
+            aria-label="Cart"
+        >
+            ♡
+            <span class="cart-count">0</span>
+        </button>
+
+        <button class="menu-button" id="menuButton">
+
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<main class="checkout-main">
+
+
+    <div class="checkout-top">
+
+        <p class="section-label">
+            R&M FAMILY WEAR
+        </p>
+
+        <h1 class="checkout-title">
+            CHECK<br>
+            <em>OUT.</em>
+        </h1>
+
+        <p class="checkout-subtitle">
+            Complete your details below to place your R&M Family Wear order.
+        </p>
+
+    </div>
+
+
+    <div class="checkout-layout">
+
+
+        <!-- FORM -->
+
+        <div class="checkout-form-wrapper">
+
+            <h2>Delivery Details</h2>
+
+
+            <form id="checkoutForm">
+
+
+                <div class="checkout-field">
+
+                    <label for="fullName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        name="fullName"
+                        placeholder="Your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="checkout-row">
+
+                    <div class="checkout-field">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="Your phone number"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="checkout-field">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="checkout-field">
+
+                    <label for="address">
+                        Delivery Address
+                    </label>
+
+                    <textarea
+                        id="address"
+                        name="address"
+                        placeholder="House / Flat number, street, area"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="checkout-row">
+
+                    <div class="checkout-field">
+
+                        <label for="city">
+                            City
+                        </label>
+
+                        <input
+                            type="text"
+                            id="city"
+                            name="city"
+                            placeholder="City"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="checkout-field">
+
+                        <label for="state">
+                            State
+                        </label>
+
+                        <input
+                            type="text"
+                            id="state"
+                            name="state"
+                            placeholder="State"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="checkout-field">
+
+                    <label for="pincode">
+                        Pincode
+                    </label>
+
+                    <input
+                        type="text"
+                        id="pincode"
+                        name="pincode"
+                        placeholder="6-digit pincode"
+                        maxlength="6"
+                        inputmode="numeric"
+                        pattern="[0-9]{6}"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PAYMENT -->
+
+                <div class="checkout-payment">
+
+                    <h3>Payment</h3>
+
+                    <div class="checkout-field">
+
+                        <label for="payment">
+                            Payment Method
+                        </label>
+
+                        <select
+                            id="payment"
+                            name="payment"
+                            required
+                        >
+
+                            <option value="">
+                                Select payment method
+                            </option>
+
+                            <option value="cod">
+                                Cash on Delivery
+                            </option>
+
+                            <option value="online">
+                                Online Payment
+                            </option>
+
+                            <option value="store">
+                                Pay at Store
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <p class="checkout-payment-note">
+                        Online payment will be securely processed through Razorpay.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="checkout-submit"
+                    id="placeOrderButton"
+                >
+                    PLACE ORDER
+                </button>
+
+
+            </form>
+
+
+            <a
+                href="men.html"
+                class="checkout-back"
+            >
+                ← CONTINUE SHOPPING
+            </a>
+
+        </div>
+
+
+        <!-- ORDER SUMMARY -->
+
+        <aside class="checkout-summary">
+
+            <h2>Your Order</h2>
+
+            <div
+                class="checkout-items"
+                id="checkoutItems"
+            ></div>
+
+
+            <div class="checkout-total">
+
+                <span>
+                    TOTAL
+                </span>
+
+                <strong id="checkoutSubtotal">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <p
+                id="checkoutEmpty"
+                class="checkout-empty"
+                style="display:none;"
+            >
+                Your bag is empty.
+            </p>
+
+        </aside>
+
+    </div>
+
+
+    <!-- SUCCESS -->
+
+    <section
+        class="order-success"
+        id="orderSuccess"
+    >
+
+        <div class="order-success-mark">
+            R&M
+        </div>
+
+        <h2>
+            Order placed.
+        </h2>
+
+        <p>
+            Thank you for shopping with R&M Family Wear.
+            Your order has been recorded successfully.
+        </p>
+
+        <div
+            class="order-number"
+            id="orderNumber"
+        >
+            RM000000
+        </div>
+
+        <br>
+
+        <a
+            href="men.html"
+            class="checkout-back"
+        >
+            CONTINUE SHOPPING →
+        </a>
+
+    </section>
+
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

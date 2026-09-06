@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>R&M Family Wear | Men's Fashion</title>
+
+    <meta
+        name="description"
+        content="R&M Family Wear — Premium men's fashion in Coimbatore."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     PAGE LOADER
+===================================================== -->
+
+<div class="loader" id="loader">
+
+    <div class="loader-logo">
+        <span>R</span>
+        <small>&</small>
+        <span>M</span>
+    </div>
+
+    <div class="loader-line"></div>
+
+    <p>FAMILY WEAR</p>
+
+</div>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header class="navbar">
+
+    <a href="#home" class="brand">
+
+        <div class="brand-mark">
+            <span>R</span>
+            <small>&</small>
+            <span>M</span>
+        </div>
+
+        <div class="brand-name">
+            <strong>R&M</strong>
+            <span>FAMILY WEAR</span>
+        </div>
+
+    </a>
+
+    <nav class="desktop-nav">
+        <a href="#home">Home</a>
+        <a href="men.html">Men</a>
+        <a href="#categories">Categories</a>
+        <a href="#store">Store</a>
+    </nav>
+
+    <div class="nav-actions">
+
+        <button class="nav-icon" id="searchButton" aria-label="Search">
+            ⌕
+        </button>
+
+        <button class="nav-icon cart-button" aria-label="Cart">
+            ♡
+            <span class="cart-count">0</span>
+        </button>
+
+        <button class="menu-button" id="menuButton" aria-label="Open menu">
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     MOBILE MENU
+===================================================== -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+    <button class="mobile-close" id="mobileClose">×</button>
+
+    <p class="menu-small">R&M FAMILY WEAR</p>
+
+    <a href="#home">Home</a>
+    <a href="men.html">Men</a>
+    <a href="#categories">Categories</a>
+    <a href="#store">Store</a>
+
+    <div class="mobile-coming">
+
+        <span>Women</span>
+        <small>Coming Soon</small>
+
+        <span>Kids</span>
+        <small>Coming Soon</small>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     SEARCH OVERLAY
+===================================================== -->
+
+<div class="search-overlay" id="searchOverlay">
+
+    <button class="search-close" id="searchClose">×</button>
+
+    <div class="search-content">
+
+        <p>SEARCH R&M</p>
+
+        <h2>Find your style.</h2>
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search men's clothing..."
+            >
+
+            <span>⌕</span>
+
+        </div>
+
+        <div class="search-suggestions">
+            <button>Shirts</button>
+            <button>T-Shirts</button>
+            <button>Polos</button>
+            <button>Jeans</button>
+            <button>Jackets</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main id="home">
+
+<section class="hero">
+
+    <div class="hero-image">
+
+        <img
+            src="images/hero.jpg"
+            alt="R&M Men's Fashion"
+        >
+
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <p class="hero-eyebrow">
+            R&M FAMILY WEAR
+        </p>
+
+        <h1>
+            MEN'S<br>
+            <em>COLLECTION</em>
+        </h1>
+
+        <p class="hero-description">
+            Refined essentials. Modern silhouettes.
+            Everyday luxury.
+        </p>
+
+        <a href="men.html" class="luxury-button">
+            <span>SHOP MEN</span>
+            <span class="button-arrow">→</span>
+        </a>
+
+    </div>
+
+    <div class="hero-bottom">
+        <span>COIMBATORE · INDIA</span>
+        <span>SCROLL TO EXPLORE ↓</span>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="intro reveal">
+
+    <div class="intro-number">
+        01
+    </div>
+
+    <div class="intro-content">
+
+        <p class="section-label">
+            THE R&M EDIT
+        </p>
+
+        <h2>
+            Designed for the<br>
+            <em>modern man.</em>
+        </h2>
+
+        <p>
+            Discover carefully selected men's fashion designed
+            around confidence, comfort and timeless style.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MEN'S CATEGORIES
+===================================================== -->
+
+<section class="categories-section" id="categories">
+
+    <div class="section-heading reveal">
+
+        <div>
+
+            <p class="section-label">
+                SHOP MEN
+            </p>
+
+            <h2>
+                Explore the<br>
+                <em>collection.</em>
+            </h2>
+
+        </div>
+
+        <p class="heading-description">
+            From everyday essentials to statement pieces,
+            discover the R&M men's collection.
+        </p>
+
+    </div>
+
+
+    <!-- TOP WEAR -->
+
+    <div class="category-group reveal">
+
+        <div class="category-group-title">
+            <span>01</span>
+            <h3>TOP WEAR</h3>
+            <p>Shirts · T-Shirts · Polos · Sweatshirts · Jackets</p>
+        </div>
+
+        <div class="category-grid">
+
+            <a href="men.html?category=shirts#categories" class="category-card large">
+                <img src="images/shirts.jpg" alt="Men's Shirts">
+                <div class="category-overlay"></div>
+
+                <div class="category-info">
+                    <span>01 / TOP WEAR</span>
+                    <h4>SHIRTS</h4>
+                    <p>Explore collection →</p>
+                </div>
+            </a>
+
+            <a href="men.html?category=tshirts#categories" class="category-card">
+                <img src="images/tshirts.jpg" alt="Men's T-Shirts">
+                <div class="category-overlay"></div>
+
+                <div class="category-info">
+                    <span>02 / TOP WEAR</span>
+                    <h4>T-SHIRTS</h4>
+                    <p>Explore collection →</p>
+                </div>
+            </a>
+
+            <a href="men.html?category=polos#categories" class="category-card">
+                <img src="images/polos.jpg" alt="Men's Polos">
+                <div class="category-overlay"></div>
+
+                <div class="category-info">
+                    <span>03 / TOP WEAR</span>
+                    <h4>POLOS</h4>
+                    <p>Explore collection →</p>
+                </div>
+            </a>
+
+            <a href="men.html?category=jackets#categories" class="category-card">
+                <img src="images/jackets.jpg" alt="Men's Jackets">
+                <div class="category-overlay"></div>
+
+                <div class="category-info">
+                    <span>04 / TOP WEAR</span>
+                    <h4>JACKETS</h4>
+                    <p>Explore collection →</p>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- BOTTOM WEAR -->
+
+    <div class="category-group reveal">
+
+        <div class="category-group-title">
+            <span>02</span>
+            <h3>BOTTOM WEAR</h3>
+            <p>Trousers · Jeans · Shorts · Co-ords</p>
+        </div>
+
+        <div class="category-grid bottom-grid">
+
+            <a href="men.html?category=bottoms#categories" class="category-card">
+                <img src="images/trousers.jpg" alt="Men's Trousers">
+                <div class="category-overlay"></div>
+
+                <div class="category-info">
+                    <span>01 / BOTTOM WEAR</span>
+                    <h4>TROUSERS</h4>
+                    <p>Explore collection →</p>
+                </div>
+            </a>
+
+            <a href="men.html?category=bottoms#categories" class="category-card large">
+                <img src="images/jeans.jpg" alt="Men's Jeans">
+                <div class="category-overlay"></div>
+
+                <div class="category-info">
+                    <span>02 / BOTTOM WEAR</span>
+                    <h4>JEANS</h4>
+                    <p>Explore collection →</p>
+                </div>
+            </a>
+
+            <a href="men.html?category=bottoms#categories" class="category-card">
+                <img src="images/shorts.jpg" alt="Men's Shorts">
+                <div class="category-overlay"></div>
+
+                <div class="category-info">
+                    <span>03 / BOTTOM WEAR</span>
+                    <h4>SHORTS</h4>
+                    <p>Explore collection →</p>
+                </div>
+            </a>
+
+            <a href="men.html?category=bottoms#categories" class="category-card">
+                <img src="images/coord.jpg" alt="Men's Co-ord Sets">
+                <div class="category-overlay"></div>
+
+                <div class="category-info">
+                    <span>04 / BOTTOM WEAR</span>
+                    <h4>CO-ORD SETS</h4>
+                    <p>Explore collection →</p>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- ACCESSORIES -->
+
+    <div class="category-group reveal">
+
+        <div class="category-group-title">
+            <span>03</span>
+            <h3>ACCESSORIES</h3>
+            <p>Belts · Wallets · Watches · Perfumes · More</p>
+        </div>
+
+        <div class="category-grid accessory-grid">
+
+            <a href="men.html#categories" class="category-card">
+                <img src="images/accessories.jpg" alt="Men's Accessories">
+                <div class="category-overlay"></div>
+
+                <div class="category-info">
+                    <span>01 / ACCESSORIES</span>
+                    <h4>ACCESSORIES</h4>
+                    <p>Explore collection →</p>
+                </div>
+            </a>
+
+            <a href="men.html#categories" class="category-card">
+                <img src="images/footwear.jpg" alt="Men's Footwear">
+                <div class="category-overlay"></div>
+
+                <div class="category-info">
+                    <span>02 / FOOTWEAR</span>
+                    <h4>FOOTWEAR</h4>
+                    <p>Explore collection →</p>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     WOMEN / KIDS COMING SOON
+===================================================== -->
+
+<section class="coming-section reveal">
+
+    <div class="coming-card">
+
+        <div class="coming-number">04</div>
+
+        <p class="section-label">R&M FAMILY</p>
+
+        <h2>WOMEN</h2>
+
+        <span>COMING SOON</span>
+
+    </div>
+
+    <div class="coming-card">
+
+        <div class="coming-number">05</div>
+
+        <p class="section-label">R&M FAMILY</p>
+
+        <h2>KIDS</h2>
+
+        <span>COMING SOON</span>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     BRAND STORY
+===================================================== -->
+
+<section class="story reveal">
+
+    <div class="story-image">
+
+        <img
+            src="images/story.jpg"
+            alt="R&M Family Wear"
+        >
+
+    </div>
+
+    <div class="story-content">
+
+        <p class="section-label">
+            OUR PHILOSOPHY
+        </p>
+
+        <h2>
+            Style doesn't<br>
+            need to <em>shout.</em>
+        </h2>
+
+        <p>
+            R&M Family Wear brings together contemporary
+            men's fashion with a refined approach to everyday
+            dressing.
+        </p>
+
+        <p>
+            Simple silhouettes. Strong details. Pieces made
+            to become part of your personal style.
+        </p>
+
+        <a href="men.html" class="text-link">
+            DISCOVER R&M →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STORE
+===================================================== -->
+
+<section class="store-section reveal" id="store">
+
+    <div class="store-background"></div>
+
+    <div class="store-content">
+
+        <p class="section-label">
+            VISIT R&M
+        </p>
+
+        <h2>
+            Come see us<br>
+            <em>in person.</em>
+        </h2>
+
+        <div class="store-address">
+
+            <strong>R&M FAMILY WEAR</strong>
+
+            <p>
+                Bharathi Park 8th Cross<br>
+                Saibaba Colony<br>
+                Coimbatore — 641011<br>
+                Tamil Nadu, India
+            </p>
+
+        </div>
+
+        <a
+            href="https://www.google.com/maps/search/?api=1&query=Bharathi+Park+8th+Cross+Saibaba+Colony+Coimbatore+641011"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="luxury-button light"
+        >
+            <span>GET DIRECTIONS</span>
+            <span class="button-arrow">↗</span>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-top">
+
+        <div class="footer-brand">
+
+            <div class="footer-logo">
+                R<span>&</span>M
+            </div>
+
+            <p>FAMILY WEAR</p>
+
+        </div>
+
+        <div class="footer-links">
+
+            <div>
+
+                <h5>SHOP</h5>
+
+                <a href="men.html">Men</a>
+                <a href="men.html">New Arrivals</a>
+                <a href="men.html">Best Sellers</a>
+
+            </div>
+
+            <div>
+
+                <h5>R&M</h5>
+
+                <a href="#home">Home</a>
+                <a href="#store">Store</a>
+                <a href="#">Contact</a>
+
+            </div>
+
+            <div>
+
+                <h5>COMING SOON</h5>
+
+                <a href="#">Women</a>
+                <a href="#">Kids</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <span>© 2026 R&M FAMILY WEAR</span>
+        <span>COIMBATORE · INDIA</span>
+
+    </div>
+
+</footer>
+
+</main>
+
+
+<!-- =====================================================
+     CART DRAWER
+===================================================== -->
+
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer">
+
+    <div class="cart-header">
+
+        <div>
+            <p>YOUR BAG</p>
+            <h3>Shopping Cart</h3>
+        </div>
+
+        <button id="cartClose" aria-label="Close cart">×</button>
+
+    </div>
+
+
+    <div class="cart-empty">
+
+        <span>R&M</span>
+
+        <p>
+            Your bag is currently empty.
+        </p>
+
+        <a href="men.html" id="continueShopping">
+            CONTINUE SHOPPING →
+        </a>
+
+    </div>
+
+
+    <div class="cart-items"></div>
+
+
+    <div class="cart-footer">
+
+        <div>
+            <span>SUBTOTAL</span>
+            <strong>₹0</strong>
+        </div>
+
+        <button class="checkout-button">
+            CHECKOUT
+        </button>
+
+    </div>
+
+</aside>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

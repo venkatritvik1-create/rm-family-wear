@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Men's Collection | R&M Family Wear</title>
+
+    <meta
+        name="description"
+        content="Explore the R&M Family Wear men's collection."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header class="navbar">
+
+    <a href="index.html" class="brand">
+
+        <div class="brand-mark">
+            <span>R</span>
+            <small>&</small>
+            <span>M</span>
+        </div>
+
+        <div class="brand-name">
+            <strong>R&M</strong>
+            <span>FAMILY WEAR</span>
+        </div>
+
+    </a>
+
+    <nav class="desktop-nav">
+        <a href="index.html">Home</a>
+        <a href="men.html" class="active">Men</a>
+        <a href="#categories">Categories</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+
+    <div class="nav-actions">
+
+        <button
+            class="nav-icon"
+            id="searchButton"
+            aria-label="Search"
+        >
+            ⌕
+        </button>
+
+        <button
+            class="nav-icon cart-button"
+            aria-label="Cart"
+        >
+            ♡
+            <span class="cart-count">0</span>
+        </button>
+
+        <button
+            class="menu-button"
+            id="menuButton"
+            aria-label="Open menu"
+        >
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     MOBILE MENU
+===================================================== -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+    <button
+        class="mobile-close"
+        id="mobileClose"
+        aria-label="Close menu"
+    >
+        ×
+    </button>
+
+    <p class="menu-small">R&M FAMILY WEAR</p>
+
+    <a href="index.html">Home</a>
+    <a href="men.html">Men</a>
+    <a href="#categories">Categories</a>
+    <a href="index.html#store">Store</a>
+
+    <div class="mobile-coming">
+
+        <span>Women</span>
+        <small>Coming Soon</small>
+
+        <span>Kids</span>
+        <small>Coming Soon</small>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     SEARCH OVERLAY
+===================================================== -->
+
+<div class="search-overlay" id="searchOverlay">
+
+    <button
+        class="search-close"
+        id="searchClose"
+        aria-label="Close search"
+    >
+        ×
+    </button>
+
+    <div class="search-content">
+
+        <p>SEARCH R&M</p>
+
+        <h2>Find your style.</h2>
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search men's clothing..."
+            >
+
+            <span>⌕</span>
+
+        </div>
+
+        <div class="search-suggestions">
+
+            <button>Shirts</button>
+            <button>T-Shirts</button>
+            <button>Polos</button>
+            <button>Jeans</button>
+            <button>Jackets</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     COLLECTION HERO
+===================================================== -->
+
+<section class="collection-hero">
+
+    <div class="collection-hero-content">
+
+        <p class="section-label">
+            R&M FAMILY WEAR
+        </p>
+
+        <h1>
+            MEN'S<br>
+            <em>COLLECTION</em>
+        </h1>
+
+        <p>
+            Contemporary essentials designed for
+            everyday confidence.
+        </p>
+
+    </div>
+
+    <div class="collection-hero-number">
+        01
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     COLLECTION INTRO
+===================================================== -->
+
+<section class="collection-intro reveal">
+
+    <div>
+
+        <p class="section-label">
+            THE MEN'S EDIT
+        </p>
+
+        <h2>
+            Pieces for<br>
+            <em>every occasion.</em>
+        </h2>
+
+    </div>
+
+    <p>
+        Explore refined everyday clothing from relaxed
+        essentials to statement pieces. Discover shirts,
+        T-shirts, polos, trousers, jeans and more.
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     CATEGORY FILTERS
+===================================================== -->
+
+<section class="product-section" id="categories">
+
+    <div class="product-header reveal">
+
+        <div>
+
+            <p class="section-label">
+                SHOP
+            </p>
+
+            <h2>
+                Men's <em>Collection</em>
+            </h2>
+
+        </div>
+
+        <div class="category-filters">
+
+            <button class="filter-button active" data-filter="all">
+                All
+            </button>
+
+            <button class="filter-button" data-filter="shirts">
+                Shirts
+            </button>
+
+            <button class="filter-button" data-filter="tshirts">
+                T-Shirts
+            </button>
+
+            <button class="filter-button" data-filter="polos">
+                Polos
+            </button>
+
+            <button class="filter-button" data-filter="bottoms">
+                Bottom Wear
+            </button>
+
+            <button class="filter-button" data-filter="jackets">
+                Jackets
+            </button>
+
+        </div>
+
+    </div>
+
+
+<!-- =====================================================
+     PRODUCT GRID
+===================================================== -->
+
+<div class="product-grid">
+
+
+    <!-- PRODUCT 01 -->
+
+    <article class="product-card reveal" data-category="shirts">
+
+        <div class="product-image">
+
+            <div class="image-placeholder">
+                <span>R&M</span>
+                <small>IMAGE COMING SOON</small>
+            </div>
+
+            <span class="product-badge">
+                NEW
+            </span>
+
+            <button class="quick-add">
+                ADD TO BAG
+            </button>
+
+        </div>
+
+        <div class="product-info">
+
+            <div>
+                <h3>Classic Oxford Shirt</h3>
+                <p>Premium Cotton Shirt</p>
+            </div>
+
+            <strong>₹1,499</strong>
+
+        </div>
+
+    </article>
+
+
+    <!-- PRODUCT 02 -->
+
+    <article class="product-card reveal" data-category="shirts">
+
+        <div class="product-image">
+
+            <div class="image-placeholder">
+                <span>R&M</span>
+                <small>IMAGE COMING SOON</small>
+            </div>
+
+            <button class="quick-add">
+                ADD TO BAG
+            </button>
+
+        </div>
+
+        <div class="product-info">
+
+            <div>
+                <h3>Relaxed Linen Shirt</h3>
+                <p>Lightweight Linen</p>
+            </div>
+
+            <strong>₹1,799</strong>
+
+        </div>
+
+    </article>
+
+
+    <!-- PRODUCT 03 -->
+
+    <article class="product-card reveal" data-category="tshirts">
+
+        <div class="product-image">
+
+            <div class="image-placeholder">
+                <span>R&M</span>
+                <small>IMAGE COMING SOON</small>
+            </div>
+
+            <button class="quick-add">
+                ADD TO BAG
+            </button>
+
+        </div>
+
+        <div class="product-info">
+
+            <div>
+                <h3>Essential T-Shirt</h3>
+                <p>Premium Everyday Tee</p>
+            </div>
+
+            <strong>₹899</strong>
+
+        </div>
+
+    </article>
+
+
+    <!-- PRODUCT 04 -->
+
+    <article class="product-card reveal" data-category="tshirts">
+
+        <div class="product-image">
+
+            <div class="image-placeholder">
+                <span>R&M</span>
+                <small>IMAGE COMING SOON</small>
+            </div>
+
+            <span class="product-badge">
+                BESTSELLER
+            </span>
+
+            <button class="quick-add">
+                ADD TO BAG
+            </button>
+
+        </div>
+
+        <div class="product-info">
+
+            <div>
+                <h3>Oversized Essential Tee</h3>
+                <p>Relaxed Fit Cotton</p>
+            </div>
+
+            <strong>₹999</strong>
+
+        </div>
+
+    </article>
+
+
+    <!-- PRODUCT 05 -->
+
+    <article class="product-card reveal" data-category="polos">
+
+        <div class="product-image">
+
+            <div class="image-placeholder">
+                <span>R&M</span>
+                <small>IMAGE COMING SOON</small>
+            </div>
+
+            <button class="quick-add">
+                ADD TO BAG
+            </button>
+
+        </div>
+
+        <div class="product-info">
+
+            <div>
+                <h3>Signature Polo</h3>
+                <p>Premium Pique Cotton</p>
+            </div>
+
+            <strong>₹1,299</strong>
+
+        </div>
+
+    </article>
+
+
+    <!-- PRODUCT 06 -->
+
+    <article class="product-card reveal" data-category="polos">
+
+        <div class="product-image">
+
+            <div class="image-placeholder">
+                <span>R&M</span>
+                <small>IMAGE COMING SOON</small>
+            </div>
+
+            <button class="quick-add">
+                ADD TO BAG
+            </button>
+
+        </div>
+
+        <div class="product-info">
+
+            <div>
+                <h3>Classic Polo</h3>
+                <p>Regular Fit Cotton</p>
+            </div>
+
+            <strong>₹1,199</strong>
+
+        </div>
+
+    </article>
+
+
+    <!-- PRODUCT 07 -->
+
+    <article class="product-card reveal" data-category="bottoms">
+
+        <div class="product-image">
+
+            <div class="image-placeholder">
+                <span>R&M</span>
+                <small>IMAGE COMING SOON</small>
+            </div>
+
+            <button class="quick-add">
+                ADD TO BAG
+            </button>
+
+        </div>
+
+        <div class="product-info">
+
+            <div>
+                <h3>Tailored Trousers</h3>
+                <p>Modern Straight Fit</p>
+            </div>
+
+            <strong>₹1,699</strong>
+
+        </div>
+
+    </article>
+
+
+    <!-- PRODUCT 08 -->
+
+    <article class="product-card reveal" data-category="bottoms">
+
+        <div class="product-image">
+
+            <div class="image-placeholder">
+                <span>R&M</span>
+                <small>IMAGE COMING SOON</small>
+            </div>
+
+            <button class="quick-add">
+                ADD TO BAG
+            </button>
+
+        </div>
+
+        <div class="product-info">
+
+            <div>
+                <h3>Classic Denim Jeans</h3>
+                <p>Premium Denim</p>
+            </div>
+
+            <strong>₹1,999</strong>
+
+        </div>
+
+    </article>
+
+
+    <!-- PRODUCT 09 -->
+
+    <article class="product-card reveal" data-category="bottoms">
+
+        <div class="product-image">
+
+            <div class="image-placeholder">
+                <span>R&M</span>
+                <small>IMAGE COMING SOON</small>
+            </div>
+
+            <button class="quick-add">
+                ADD TO BAG
+            </button>
+
+        </div>
+
+        <div class="product-info">
+
+            <div>
+                <h3>Relaxed Shorts</h3>
+                <p>Everyday Casual Fit</p>
+            </div>
+
+            <strong>₹899</strong>
+
+        </div>
+
+    </article>
+
+
+    <!-- PRODUCT 10 -->
+
+    <article class="product-card reveal" data-category="jackets">
+
+        <div class="product-image">
+
+            <div class="image-placeholder">
+                <span>R&M</span>
+                <small>IMAGE COMING SOON</small>
+            </div>
+
+            <span class="product-badge">
+                NEW
+            </span>
+
+            <button class="quick-add">
+                ADD TO BAG
+            </button>
+
+        </div>
+
+        <div class="product-info">
+
+            <div>
+                <h3>Minimal Overshirt</h3>
+                <p>Structured Cotton</p>
+            </div>
+
+            <strong>₹2,299</strong>
+
+        </div>
+
+    </article>
+
+
+    <!-- PRODUCT 11 -->
+
+    <article class="product-card reveal" data-category="jackets">
+
+        <div class="product-image">
+
+            <div class="image-placeholder">
+                <span>R&M</span>
+                <small>IMAGE COMING SOON</small>
+            </div>
+
+            <button class="quick-add">
+                ADD TO BAG
+            </button>
+
+        </div>
+
+        <div class="product-info">
+
+            <div>
+                <h3>Classic Casual Jacket</h3>
+                <p>Contemporary Outerwear</p>
+            </div>
+
+            <strong>₹2,499</strong>
+
+        </div>
+
+    </article>
+
+
+    <!-- PRODUCT 12 -->
+
+    <article class="product-card reveal" data-category="tshirts">
+
+        <div class="product-image">
+
+            <div class="image-placeholder">
+                <span>R&M</span>
+                <small>IMAGE COMING SOON</small>
+            </div>
+
+            <button class="quick-add">
+                ADD TO BAG
+            </button>
+
+        </div>
+
+        <div class="product-info">
+
+            <div>
+                <h3>Premium Crew Neck</h3>
+                <p>Soft Cotton Jersey</p>
+            </div>
+
+            <strong>₹949</strong>
+
+        </div>
+
+    </article>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     COMING SOON
+===================================================== -->
+
+<section class="collection-coming reveal">
+
+    <p class="section-label">
+        MORE FROM R&M
+    </p>
+
+    <h2>
+        More collections<br>
+        <em>coming soon.</em>
+    </h2>
+
+    <div class="coming-links">
+
+        <span>
+            WOMEN
+            <small>COMING SOON</small>
+        </span>
+
+        <span>
+            KIDS
+            <small>COMING SOON</small>
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-top">
+
+        <div class="footer-brand">
+
+            <div class="footer-logo">
+                R<span>&</span>M
+            </div>
+
+            <p>
+                FAMILY WEAR
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <div>
+
+                <h5>SHOP</h5>
+
+                <a href="men.html">Men</a>
+                <a href="#">New Arrivals</a>
+                <a href="#">Best Sellers</a>
+
+            </div>
+
+
+            <div>
+
+                <h5>R&M</h5>
+
+                <a href="index.html">Home</a>
+                <a href="index.html#store">Store</a>
+                <a href="#">Contact</a>
+
+            </div>
+
+
+            <div>
+
+                <h5>COMING SOON</h5>
+
+                <a href="#">Women</a>
+                <a href="#">Kids</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 R&M FAMILY WEAR
+        </span>
+
+        <span>
+            COIMBATORE · INDIA
+        </span>
+
+    </div>
+
+</footer>
+
+</main>
+
+
+<!-- =====================================================
+     CART DRAWER
+===================================================== -->
+
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer">
+
+    <div class="cart-header">
+
+        <div>
+
+            <p>YOUR BAG</p>
+
+            <h3>Shopping Cart</h3>
+
+        </div>
+
+        <button id="cartClose">
+            ×
+        </button>
+
+    </div>
+
+
+    <!-- CART MESSAGE -->
+
+    <div class="cart-empty">
+
+        <span>R&M</span>
+
+        <p>
+            Your bag is currently empty.
+        </p>
+
+    </div>
+
+
+    <!-- CART PRODUCTS -->
+
+    <div class="cart-items"></div>
+
+
+    <!-- CART FOOTER -->
+
+    <div class="cart-footer">
+
+        <div>
+
+            <span>SUBTOTAL</span>
+
+            <strong>₹0</strong>
+
+        </div>
+
+        <button class="checkout-button">
+            CHECKOUT
+        </button>
+
+    </div>
+
+</aside>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
